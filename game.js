@@ -3,34 +3,26 @@ window.onload = function() {
   var start = document.getElementById('start');
   var end = document.getElementById('end');
   var score = document.querySelector('.example')
-  var y = 0;
   var x = 0;
+  var y = 0; //used not to avoid repeating collisions and wins
   score.innerHTML = x;
-
-
-  //reset the game
+  //reset the game on mouse click
   start.addEventListener("click", function(){
     x = 0
     y = 0
     score.innerHTML = x
-    console.log('clicked')
     document.getElementById('status').innerHTML = 'Begin by moving your mouse over the "S".';
     for (var i=0; i< boundary1.length; i++) {
         boundary1[i].style.borderColor = "black"; 
     }
   })
-
-  //start playing again
-start.addEventListener('mouseover',function(){
-  console.log('starthovering game start')
-y=0
-document.getElementById('status').innerHTML = 'Begin by moving your mouse over the "S".';
+  //start playing again on mouse over
+  start.addEventListener('mouseover',function(){
+    document.getElementById('status').innerHTML = 'Begin by moving your mouse over the "S".';
     for (var i=0; i< boundary1.length; i++) {
-        boundary1[i].style.borderColor = "black"; 
+      boundary1[i].style.borderColor = "black"; 
 }})
-
-
-  //lose
+  //lose when mouse touches the walls
   for (var i = 0; i < boundary1.length; i++) {
     boundary1[i].addEventListener("mouseover", function() { 
       if(y==0){
@@ -43,17 +35,13 @@ document.getElementById('status').innerHTML = 'Begin by moving your mouse over t
        }}
       }
     )}
-
-
-  //end which means win
+  //end which means win when touching end button
   end.addEventListener("mouseover", function(){
-  console.log('the end')
-  if (y == 0){
-  document.getElementById('status').innerHTML = "You won";
-  x+=5
-  score.innerHTML = x;
-  console.log('Score out')
-  y+=5
+    if (y == 0){
+    document.getElementById('status').innerHTML = "You won";
+    x+=5
+    score.innerHTML = x;
+    y+=5
 }}
 )
 }
