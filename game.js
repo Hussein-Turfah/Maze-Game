@@ -19,6 +19,7 @@ window.onload = function() {
   //start playing again on mouse over
   start.addEventListener('mouseover',function(){
     document.getElementById('status').innerHTML = 'Begin by moving your mouse over the "S".';
+    y = 0
     for (var i=0; i< boundary1.length; i++) {
       boundary1[i].style.borderColor = "black"; 
 }})
