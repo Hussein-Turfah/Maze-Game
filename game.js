@@ -7,7 +7,8 @@ window.onload = function() {
   var x = 0;
   score.innerHTML = x;
 
-  //start or restart and reset
+
+  //reset the game
   start.addEventListener("click", function(){
     x = 0
     y = 0
@@ -18,6 +19,17 @@ window.onload = function() {
         boundary1[i].style.borderColor = "black"; 
     }
   })
+
+  //start playing again
+start.addEventListener('mouseover',function(){
+  console.log('starthovering game start')
+y=0
+document.getElementById('status').innerHTML = 'Begin by moving your mouse over the "S".';
+    for (var i=0; i< boundary1.length; i++) {
+        boundary1[i].style.borderColor = "black"; 
+}})
+
+
   //lose
   for (var i = 0; i < boundary1.length; i++) {
     boundary1[i].addEventListener("mouseover", function() { 
